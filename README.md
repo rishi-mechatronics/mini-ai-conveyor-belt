@@ -65,13 +65,13 @@ The vision model was trained and validated using **Edge Impulse Studio**. Below 
 * **Classes:** `small`, `medium`, `large`
 * **Data Source:** Raw images captured at 320x240 pixels directly on the conveyor rig setup.
 
-![Dataset Summary](AI/dataset.png)
+[Dataset Summary](AI/dataset.png)
 
 ### Model Validation Performance
 * **Unoptimized Model (Float32) Accuracy:** 91.30%
 * **F1 Scores:** `SMALL`: 1.00 (100% accuracy) | `MEDIUM`: 0.92 | `LARGE`: 0.86
 
-![Training Results](AI/transfer learning + accuracy.png)
+[Training_Results](AI/transfer%20learning%20+%20accuracy.png)
 
 ### On-Device Target Performance (ESP32-CAM Profile)
 To optimize the network for execution on edge microcontroller hardware, the model was converted into an 8-bit integer quantized layout using the **Edge Impulse EON™ Compiler (RAM optimized)**:
@@ -80,7 +80,7 @@ To optimize the network for execution on edge microcontroller hardware, the mode
 * **Peak RAM Usage:** 228.0 KB
 * **Flash Storage Usage:** 545.9 KB
 
-![On-Device Benchmarks](./ai/transfer%20learning%20+%20accuracy.png)
+[On-Device Benchmarks](./ai/transfer%20learning%20+%20accuracy.png)
 
 ---
 
