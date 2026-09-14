@@ -71,7 +71,7 @@ The vision model was trained and validated using **Edge Impulse Studio**. Below 
 * **Unoptimized Model (Float32) Accuracy:** 91.30%
 * **F1 Scores:** `SMALL`: 1.00 (100% accuracy) | `MEDIUM`: 0.92 | `LARGE`: 0.86
 
-![Training Results](./ai/training.png)
+![Training Results](AI/transfer learning + accuracy.png)
 
 ### On-Device Target Performance (ESP32-CAM Profile)
 To optimize the network for execution on edge microcontroller hardware, the model was converted into an 8-bit integer quantized layout using the **Edge Impulse EON™ Compiler (RAM optimized)**:
