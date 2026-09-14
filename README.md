@@ -65,7 +65,7 @@ The vision model was trained and validated using **Edge Impulse Studio**. Below 
 * **Classes:** `small`, `medium`, `large`
 * **Data Source:** Raw images captured at 320x240 pixels directly on the conveyor rig setup.
 
-![Dataset Summary](./ai/dataset.png)
+![Dataset Summary](AI/dataset.png)
 
 ### Model Validation Performance
 * **Unoptimized Model (Float32) Accuracy:** 91.30%
