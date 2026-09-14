@@ -80,7 +80,7 @@ To optimize the network for execution on edge microcontroller hardware, the mode
 * **Peak RAM Usage:** 228.0 KB
 * **Flash Storage Usage:** 545.9 KB
 
-[On-Device Benchmarks](./ai/transfer%20learning%20+%20accuracy.png)
+[Training performance](AI/training.png)
 
 ---
 
