@@ -17,16 +17,17 @@ The system utilizes an **ESP32-CAM** paired with an **OV3660 camera** to capture
 ## Project Structure & Hardware
 
 ### Folder Layout
-* `/src` — Contains the embedded C/C++ Arduino camera classification code.
-* `/hardware` — Circuit schematics, motor driver configurations, and [Wiring Diagrams](./hardware).
+* `/src` — Contains the embedded C++ Arduino camera classification code.
+* `/hardware` — Arduino + step motor wiring, motor driver configurations, and [Wiring Diagrams](./hardware).
 * `/prototype` — Physical build documentation and [Dataset Collection Photos](./prototype).
+* `/ai` — Holds the training visualizations and model snapshots.
 
 ### Hardware Components
-* **Microcontroller:** ESP32-CAM (AI-Thinker)
+* **Microcontroller:** ESP32-CAM (AI-Thinker) + ARDUINO UNO
 * **Camera Sensor:** OV3660 Camera module
 * **Programming Interface:** ESP32-CAM-MB programmer shield
-* **Actuation & Drive:** Conveyor belt mechanism, motor, and stepper+motor driver
-* **Sorting Mechanism:** Servo motor
+* **Actuation & Drive:** Conveyor belt mechanism, step motor, and motor driver
+* **Sorting Mechanism:** AI trained via edge impulse
 * **Infrastructure:** Dedicated power supply & laptop
 
 ### Software Stack
@@ -47,6 +48,35 @@ The system utilizes an **ESP32-CAM** paired with an **OV3660 camera** to capture
    * **Medium** (Medium-sized object)
    * **Large** (Large-sized object)
 6. **Action:** The final classification output can be passed to actuators to control a downstream sorting mechanism.
+
+---
+
+## Machine Learning Model & Training Metrics
+
+The vision model was trained and validated using **Edge Impulse Studio**. Below are the dataset profiles and on-device deployment targets:
+
+### Dataset Profile
+* **Total Data Collected:** 109 items
+* **Dataset Split:** 72% Training / 28% Testing
+* **Classes:** `small`, `medium`, `large`
+* **Data Source:** Raw images captured at 320x240 pixels directly on the conveyor rig setup.
+
+![Dataset Summary](./ai/dataset.png)
+
+### Model Validation Performance
+* **Unoptimized Model (Float32) Accuracy:** 91.30%
+* **F1 Scores:** `SMALL`: 1.00 (100% accuracy) | `MEDIUM`: 0.92 | `LARGE`: 0.86
+
+![Training Results](./ai/training.png)
+
+### On-Device Target Performance (ESP32-CAM Profile)
+To optimize the network for execution on edge microcontroller hardware, the model was converted into an 8-bit integer quantized layout using the **Edge Impulse EON™ Compiler (RAM optimized)**:
+* **Quantized (Int8) Accuracy:** 75.0%
+* **Inferencing Time (Latency):** 14 ms (allowing rapid real-time frame rates)
+* **Peak RAM Usage:** 228.0 KB
+* **Flash Storage Usage:** 545.9 KB
+
+![On-Device Benchmarks](./ai/transfer%20learning%20+%20accuracy.png)
 
 ---
 
@@ -89,8 +119,6 @@ The ultimate goal of this project is to develop a robust, small-scale demonstrat
 * Increase conveyor speed and system reliability
 * Add object detection and position tracking
 * Improve the mechanical design of the conveyor and robotic arm
-
----
 
 ## Author
 **rishi**  
