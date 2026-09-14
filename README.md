@@ -23,7 +23,7 @@ The system utilizes an **ESP32-CAM** paired with an **OV3660 camera** to capture
 ### Folder Layout
 * `/src` — Contains the embedded C++ Arduino camera classification code.
 * `/hardware` — Arduino + step motor wiring, motor driver configurations, and [Wiring Diagrams](./hardware).
-* `/prototype` — Physical build documentation and [Dataset Collection Photos](./prototype).
+* `/prototype` — Physical build documentation and [Dataset Collection Photos](AI/dataset.png).
 * `/ai` — Holds the training visualizations and model snapshots.
 
 ### Hardware Components
