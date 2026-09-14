@@ -2,6 +2,8 @@
 
 ## Demo
 
+![Mini AI Conveyor Belt Prototype](images/prototype/prototype%20with%20esp32%20cam.jpeg)
+
 A mini automated conveyor belt that uses computer vision and artificial intelligence to classify objects into **Small**, **Medium**, and **Large** categories. 
 
 The system utilizes an **ESP32-CAM** paired with an **OV3660 camera** to capture real-time images of objects moving along the belt. An AI classification model trained using **Edge Impulse** processes the incoming camera data on the edge to determine the object's size.
